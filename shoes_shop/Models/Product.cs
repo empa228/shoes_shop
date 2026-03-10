@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace shoes_shop;
 
-public partial class Product
+public partial class Products
 {
     public int Id { get; set; }
 

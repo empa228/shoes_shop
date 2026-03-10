@@ -9,5 +9,5 @@ public partial class Manufacturer
 
     public string ManufacturerName { get; set; } = null!;
 
-    public virtual ICollection<Product> Products { get; set; } = new List<Product>();
+    public virtual ICollection<Products> Products { get; set; } = new List<Products>();
 }

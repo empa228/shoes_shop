@@ -15,5 +15,5 @@ public partial class ProductsOrder
 
     public virtual Order Order { get; set; } = null!;
 
-    public virtual Product Product { get; set; } = null!;
+    public virtual Products Product { get; set; } = null!;
 }

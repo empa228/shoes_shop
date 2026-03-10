@@ -30,9 +30,9 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             TopPanel = new Panel();
+            userNameLabel = new Label();
             EnterButton = new Button();
             dataGridView1 = new DataGridView();
-            userNameLabel = new Label();
             TopPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -47,6 +47,17 @@
             TopPanel.Name = "TopPanel";
             TopPanel.Size = new Size(800, 40);
             TopPanel.TabIndex = 0;
+            // 
+            // userNameLabel
+            // 
+            userNameLabel.AutoSize = true;
+            userNameLabel.Dock = DockStyle.Right;
+            userNameLabel.Location = new Point(687, 0);
+            userNameLabel.Name = "userNameLabel";
+            userNameLabel.Size = new Size(38, 15);
+            userNameLabel.TabIndex = 6;
+            userNameLabel.Text = "label1";
+            userNameLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // EnterButton
             // 
@@ -84,17 +95,6 @@
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(800, 410);
             dataGridView1.TabIndex = 1;
-            // 
-            // userNameLabel
-            // 
-            userNameLabel.AutoSize = true;
-            userNameLabel.Dock = DockStyle.Right;
-            userNameLabel.Location = new Point(687, 0);
-            userNameLabel.Name = "userNameLabel";
-            userNameLabel.Size = new Size(38, 15);
-            userNameLabel.TabIndex = 6;
-            userNameLabel.Text = "label1";
-            userNameLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // FormProduct
             // 

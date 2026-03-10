@@ -25,7 +25,7 @@ public partial class ShopDbContext : DbContext
 
     public virtual DbSet<Order> Orders { get; set; }
 
-    public virtual DbSet<Product> Products { get; set; }
+    public virtual DbSet<Products> Products { get; set; }
 
     public virtual DbSet<ProductType> ProductTypes { get; set; }
 
@@ -112,7 +112,7 @@ public partial class ShopDbContext : DbContext
                 .HasConstraintName("orders_id_user_fkey");
         });
 
-        modelBuilder.Entity<Product>(entity =>
+        modelBuilder.Entity<Products>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("products_pkey");
 
