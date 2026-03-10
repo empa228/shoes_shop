@@ -31,12 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             LogoPictureBox = new PictureBox();
             MainPanel = new Panel();
-            LoginLabel = new Label();
-            LoginTextBox = new TextBox();
+            GuestEnterButton = new Button();
+            EnterButton = new Button();
             PasswordTextBox = new TextBox();
             PasswordLabel = new Label();
-            EnterButton = new Button();
-            GuestEnterButton = new Button();
+            LoginTextBox = new TextBox();
+            LoginLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)LogoPictureBox).BeginInit();
             MainPanel.SuspendLayout();
             SuspendLayout();
@@ -65,21 +65,27 @@
             MainPanel.Size = new Size(360, 208);
             MainPanel.TabIndex = 1;
             // 
-            // LoginLabel
+            // GuestEnterButton
             // 
-            LoginLabel.AutoSize = true;
-            LoginLabel.Location = new Point(160, 19);
-            LoginLabel.Name = "LoginLabel";
-            LoginLabel.Size = new Size(41, 15);
-            LoginLabel.TabIndex = 0;
-            LoginLabel.Text = "Логин";
+            GuestEnterButton.BackColor = Color.Chartreuse;
+            GuestEnterButton.Location = new Point(117, 163);
+            GuestEnterButton.Name = "GuestEnterButton";
+            GuestEnterButton.Size = new Size(126, 23);
+            GuestEnterButton.TabIndex = 5;
+            GuestEnterButton.Text = "Войти как гость";
+            GuestEnterButton.UseVisualStyleBackColor = false;
+            GuestEnterButton.Click += GuestEnterButton_Click;
             // 
-            // LoginTextBox
+            // EnterButton
             // 
-            LoginTextBox.Location = new Point(19, 43);
-            LoginTextBox.Name = "LoginTextBox";
-            LoginTextBox.Size = new Size(323, 23);
-            LoginTextBox.TabIndex = 1;
+            EnterButton.BackColor = Color.MediumSpringGreen;
+            EnterButton.Location = new Point(143, 131);
+            EnterButton.Name = "EnterButton";
+            EnterButton.Size = new Size(75, 23);
+            EnterButton.TabIndex = 4;
+            EnterButton.Text = "Войти";
+            EnterButton.UseVisualStyleBackColor = false;
+            EnterButton.Click += EnterButton_Click;
             // 
             // PasswordTextBox
             // 
@@ -97,25 +103,21 @@
             PasswordLabel.TabIndex = 2;
             PasswordLabel.Text = "Пароль";
             // 
-            // EnterButton
+            // LoginTextBox
             // 
-            EnterButton.BackColor = Color.MediumSpringGreen;
-            EnterButton.Location = new Point(143, 131);
-            EnterButton.Name = "EnterButton";
-            EnterButton.Size = new Size(75, 23);
-            EnterButton.TabIndex = 4;
-            EnterButton.Text = "Войти";
-            EnterButton.UseVisualStyleBackColor = false;
+            LoginTextBox.Location = new Point(19, 43);
+            LoginTextBox.Name = "LoginTextBox";
+            LoginTextBox.Size = new Size(323, 23);
+            LoginTextBox.TabIndex = 1;
             // 
-            // GuestEnterButton
+            // LoginLabel
             // 
-            GuestEnterButton.BackColor = Color.Chartreuse;
-            GuestEnterButton.Location = new Point(117, 163);
-            GuestEnterButton.Name = "GuestEnterButton";
-            GuestEnterButton.Size = new Size(126, 23);
-            GuestEnterButton.TabIndex = 5;
-            GuestEnterButton.Text = "Войти как гость";
-            GuestEnterButton.UseVisualStyleBackColor = false;
+            LoginLabel.AutoSize = true;
+            LoginLabel.Location = new Point(160, 19);
+            LoginLabel.Name = "LoginLabel";
+            LoginLabel.Size = new Size(41, 15);
+            LoginLabel.TabIndex = 0;
+            LoginLabel.Text = "Логин";
             // 
             // FormLogin
             // 
