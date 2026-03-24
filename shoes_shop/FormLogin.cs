@@ -11,7 +11,7 @@ namespace shoes_shop
 {
     public partial class FormLogin : Form
     {
-        public User CurrentUser { get; private set; }
+        public Users CurrentUser { get; private set; }
         public bool IsGuest { get; private set; }
 
         public FormLogin()

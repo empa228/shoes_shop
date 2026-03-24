@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace shoes_shop;
 
-public partial class Order
+public partial class Orders
 {
     public int Id { get; set; }
 
@@ -24,7 +24,7 @@ public partial class Order
 
     public virtual Status Status { get; set; } = null!;
 
-    public virtual User User { get; set; } = null!;
+    public virtual Users User { get; set; } = null!;
 
     public virtual ICollection<ProductsOrder> ProductsOrders { get; set; } = new List<ProductsOrder>();
 }

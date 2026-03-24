@@ -9,5 +9,5 @@ public partial class DeliveryPoint
 
     public string DeliveryAddress { get; set; } = null!;
 
-    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
+    public virtual ICollection<Orders> Orders { get; set; } = new List<Orders>();
 }

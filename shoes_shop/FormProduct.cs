@@ -13,11 +13,11 @@ namespace shoes_shop
 {
     public partial class FormProduct : Form
     {
-        
-        public User CurrentUser { get; private set; }
+
+        public Users CurrentUser { get; private set; }
         public bool IsGuest { get; private set; }
 
-        public FormProduct(User user, bool guest)
+        public FormProduct(Users user, bool guest)
         {
             InitializeComponent();
 
@@ -38,17 +38,28 @@ namespace shoes_shop
             colDiscount.FillWeight = 10;
             colDiscount.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
+            var colOrder = new DataGridViewTextBoxColumn();
+            colOrder.Name = "colOrder";
+            colOrder.FillWeight = 60;
+            colOrder.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+
             dataGridView1.Columns.AddRange(
             [
                 colPhoto, colInfo, colDiscount
             ]);
 
+            dataGridView2.Columns.AddRange(
+            [
+                colOrder
+            ]);
+
             CurrentUser = user;
             IsGuest = guest;
 
-           userNameLabel.Text = IsGuest ? "Гость" : CurrentUser.FullName;
+            userNameLabel.Text = IsGuest ? "Гость" : CurrentUser.FullName;
 
             LoadProducts();
+            LoadOrders();
         }
 
         private void LoadProducts()
@@ -81,6 +92,37 @@ namespace shoes_shop
                         row.Cells["colDiscount"].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
                         ApplyRowStyles(row, product);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка загрузки: {ex.Message}", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void LoadOrders()
+        {
+            try
+            {
+                using (var db = new ShopDbContext())
+                {
+                    var orders = db.Orders
+                        .Include(i => i.DeliveryPoint)
+                        .Include(i => i.Status)
+                        .Include(i => i.User)
+                        .ToList();
+
+                    dataGridView2.SuspendLayout();
+                    dataGridView2.Rows.Clear();
+
+                    foreach (var order in orders)
+                    {
+                        int rowIndex = dataGridView2.Rows.Add();
+                        var row = dataGridView2.Rows[rowIndex];
+
+                        row.Cells["colOrder"].Value = FormatOrderInfo(order);
                     }
                 }
             }
@@ -139,6 +181,14 @@ namespace shoes_shop
                 $"Цена {priceText}" + Environment.NewLine +
                 $"Единица измерения: {product.Measure.MeasureName}" + Environment.NewLine +
                 $"Количество на складе: {product.CointInStock}";
+        }
+        private string FormatOrderInfo(Orders order)
+        {
+            return $"{order.DeliveryPoint.DeliveryAddress}" + Environment.NewLine +
+                $"Дата заказа: {order.OrderDate}" + Environment.NewLine +
+                $"Дата доставки: {order.DeliveryDate}" + Environment.NewLine +
+                $"Поставщик: {order.User.Id}" + Environment.NewLine +
+                $"Статус: {order.Status.StatusName}";
         }
 
         private Image LoadProductImage(string photoUrl)

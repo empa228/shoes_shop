@@ -23,7 +23,7 @@ public partial class ShopDbContext : DbContext
 
     public virtual DbSet<Measure> Measures { get; set; }
 
-    public virtual DbSet<Order> Orders { get; set; }
+    public virtual DbSet<Orders> Orders { get; set; }
 
     public virtual DbSet<Products> Products { get; set; }
 
@@ -37,7 +37,7 @@ public partial class ShopDbContext : DbContext
 
     public virtual DbSet<Supplier> Suppliers { get; set; }
 
-    public virtual DbSet<User> Users { get; set; }
+    public virtual DbSet<Users> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
@@ -85,7 +85,7 @@ public partial class ShopDbContext : DbContext
             entity.Property(e => e.MeasureName).HasColumnName("measure_name");
         });
 
-        modelBuilder.Entity<Order>(entity =>
+        modelBuilder.Entity<Orders>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("orders_pkey");
 
@@ -214,7 +214,7 @@ public partial class ShopDbContext : DbContext
             entity.Property(e => e.SupplierName).HasColumnName("supplier_name");
         });
 
-        modelBuilder.Entity<User>(entity =>
+        modelBuilder.Entity<Users>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("users_pkey");
 

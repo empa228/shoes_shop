@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace shoes_shop.Models;
 
-public partial class User
+public partial class Users
 {
     public int Id { get; set; }
 
@@ -21,7 +21,7 @@ public partial class User
 
     public virtual Role Role { get; set; } = null!;
 
-    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
+    public virtual ICollection<Orders> Orders { get; set; } = new List<Orders>();
 
     public string FullName => $"{LastName} {FirstName} {MiddleName}";
 }
