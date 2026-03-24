@@ -13,8 +13,7 @@ namespace shoes_shop
 {
     public partial class FormProduct : Form
     {
-        public FormProducts();
-
+        
         public User CurrentUser { get; private set; }
         public bool IsGuest { get; private set; }
 
@@ -63,6 +62,7 @@ namespace shoes_shop
                         .Include(i => i.Manufacturer)
                         .Include(i => i.Supplier)
                         .Include(i => i.Measure)
+                        .Include(i => i.ProductType)
                         .ToList();
 
                     dataGridView1.SuspendLayout();
@@ -147,8 +147,7 @@ namespace shoes_shop
             {
                 return Image.FromFile(photoUrl);
             }
-
-            return Resources.;
+            return Resources.picture;
         }
 
         private void BtnLogut_Click(object sender, EventArgs e)

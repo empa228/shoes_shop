@@ -67,8 +67,9 @@
             EnterButton.Name = "EnterButton";
             EnterButton.Size = new Size(75, 40);
             EnterButton.TabIndex = 5;
-            EnterButton.Text = "Войти";
+            EnterButton.Text = "Выйти";
             EnterButton.UseVisualStyleBackColor = false;
+            EnterButton.Click += BtnLogut_Click;
             // 
             // dataGridView1
             // 
